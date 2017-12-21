@@ -14,7 +14,11 @@
 
 ### ・send
 
-### ・tip
+### ・tip/投銭
+@￰zenytips tip @￰twitterアカウント 投銭額(ZNY)<br>
+投げ銭をします。送られた側は3日以内にbalanceをすると受け取れます。<br>
+また、@￰zenytips tip @￰zenytips 投銭額(ZNY)<br>
+で開発者に寄付できます。サーバー代足りないのでぜひ投げ銭どうぞ。
 
 ### ・rain
  @￰zenytips rain 撒銭額(ZNY)<br>
