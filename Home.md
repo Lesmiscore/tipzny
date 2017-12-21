@@ -1,8 +1,12 @@
 # りん姫(BitZeny投げ銭bot) Help
 
-### ・balance
+### ・balance/残高
+@zenytips balance (コメント)<br>
+残高を確認できます。
 
-### ・deposit
+### ・deposit/入金
+@zenytips deposit (コメント)<br>
+入金用アドレスを返します。
 
 ### ・withdraw
 
