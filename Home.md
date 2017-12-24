@@ -31,3 +31,6 @@ DMでのみ使えます。rainを受け取る条件を満たしている人一�
 ### ・rainfollower
 @￰zenytips rainfollower 撒銭額(ZNY)<br>
 自分のフォロワーの人に限りrainをします。重いので連発しないでね。
+
+### ・rainfollowerlist
+DMでのみ使えます。rainfollowerを受け取る条件を満たしている人一覧を返します。
