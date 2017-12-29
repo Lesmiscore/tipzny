@@ -31,13 +31,14 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 例:@zenytips withdrawall EXAMPleAdDreSS<br>
 
 ## send/送金
-### @￰zenytips send @￰twitterアカウント 送金額<br>
+### @￰zenytips send @￰twitterアカウント 送金額 (コメント)<br>
 指定された額のZNYを相手に送ります。<br>
 
 ## tip/投銭
-### @￰zenytips tip @￰twitterアカウント 投銭額(ZNY)<br>
+### @￰zenytips tip @￰twitterアカウント 投銭額 (コメント)<br>
 指定された額のZNYを相手に送ります。送られた側は3日以内にbalanceをすると受け取れます。<br>
 相手が3日以内に受け取らなかった場合、返金されます。<br><br>
+例:@zenytips tip @tra_sta 3.9 ありがとう！<br><br>
 ### @￰zenytips tip @￰zenytips 投銭額<br>
 で開発者に寄付できます。サーバー維持費に使うので是非投げ銭ください。
 
