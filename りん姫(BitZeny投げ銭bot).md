@@ -33,10 +33,10 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 ## send/送金
 
 ## tip/投銭
-@￰zenytips tip @￰twitterアカウント 投銭額(ZNY)<br>
+### @￰zenytips tip @￰twitterアカウント 投銭額(ZNY)<br>
 投げ銭をします。送られた側は3日以内にbalanceをすると受け取れます。<br><br>
 また、@￰zenytips tip @￰zenytips 投銭額(ZNY)<br>
-で開発者に寄付できます。サーバー代足りないのでぜひ投げ銭どうぞ。
+で開発者に寄付できます。サーバー維持費に使うので是非投げ銭どうぞ。
 
 ## rain
  @￰zenytips rain 撒銭額(ZNY)<br>
