@@ -15,6 +15,7 @@
 ### @zenytips deposit (コメント)<br>
 入金用アドレスを返します。<br><br>
 例:@zenytips deposit
+<img src="https://i.imgur.com/r6cxfFc.png" alt="" width="50%" height="50%">
 
 ## withdraw/出金
 
