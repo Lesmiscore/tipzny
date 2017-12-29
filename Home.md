@@ -8,7 +8,8 @@
 ## balance/残高
 ### @zenytips balance (コメント)<br>
 残高を確認できます。<br><br>
-例:@zenytips balance
+例:@zenytips balance<br>
+![](https://i.imgur.com/kjoqPPN.png)
 
 ## deposit/入金
 ### @zenytips deposit (コメント)<br>
