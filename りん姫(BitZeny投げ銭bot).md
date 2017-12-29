@@ -43,15 +43,16 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 で開発者に寄付できます。サーバー維持費に使うので是非投げ銭ください。
 
 ## rain
- @￰zenytips rain 撒銭額(ZNY)<br>
- rainを受け取れる条件は、残高5zny以上でbalanceをしていること<br>
- 出金して10zny切った場合は取り消し
+### @￰zenytips rain 撒銭額<br>
+条件を満たしている人に均等にZNYを送ります。<br>
+rainを受け取れる条件は、残高5zny以上でbalanceをしていることです。<br>
+
 
 ## rainlist
 DMでのみ使えます。rainを受け取る条件を満たしている人一覧を返します。
 
 ## rainfollower
-@￰zenytips rainfollower 撒銭額(ZNY)<br>
+### @￰zenytips rainfollower 撒銭額<br>
 自分のフォロワーの人に限りrainをします。重いので連発しないでね。
 
 ## rainfollowerlist
