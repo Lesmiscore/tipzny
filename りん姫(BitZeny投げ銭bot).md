@@ -20,6 +20,9 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 <img src="https://i.imgur.com/r6cxfFc.png" alt="" width="50%" height="50%">
 
 ## withdraw/出金
+### @zenytips withdraw 受取ZNYアドレス 出金額(ZNY)<br>
+指定した額を出金することができます。<br><br>
+例:@zenytips withdraw sahsbaisbau 10<br>
 
 ## withdrawall/全額出金
 
