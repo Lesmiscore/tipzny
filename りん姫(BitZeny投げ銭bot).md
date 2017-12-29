@@ -20,12 +20,15 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 <img src="https://i.imgur.com/r6cxfFc.png" alt="" width="50%" height="50%">
 
 ## withdraw/出金
-### @zenytips withdraw 受取ZNYアドレス 出金額(ZNY)<br>
+### @zenytips withdraw 受取ZNYアドレス 出金額<br>
 指定した額を出金することができます。<br><br>
 例:@zenytips withdraw EXAMPleAdDreSS 10<br>
 <img src="https://i.imgur.com/NNqJiEu.png" alt="" width="50%" height="50%">
 
 ## withdrawall/全額出金
+### @zenytips withdrawall 受取ZNYアドレス<br>
+りん姫にある残高すべてを出金することができます。<br><br>
+例:@zenytips withdrawall EXAMPleAdDreSS<br>
 
 ## send/送金
 
