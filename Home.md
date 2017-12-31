@@ -29,11 +29,11 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 ## withdrawall/全額出金
 ### @zenytips withdrawall 受取ZNYアドレス<br>
 りん姫にある残高すべてを出金することができます。<br><br>
-例:@zenytips withdrawall EXAMPleAdDreSS<br>
+例:@zenytips withdrawall EXAMPleAdDreSS<br><br>
 
 ## send/送金
 ### @￰zenytips send @￰twitterアカウント 送金額 (コメント)<br>
-指定された額のZNYを相手に送ります。<br>
+指定された額のZNYを相手に送ります。<br><br>
 
 ## tip/投銭
 ### @￰zenytips tip @￰twitterアカウント 投銭額 (コメント)<br>
@@ -41,23 +41,34 @@ botが止まっていた時や質問があるときは[開発者twitter](https:/
 相手が3日以内に受け取らなかった場合、返金されます。<br><br>
 例:@zenytips tip @tra_sta 3.9 ありがとう！<br><br>
 ### @￰zenytips tip @￰zenytips 投銭額<br>
-で開発者に寄付できます。サーバー維持費に使うので是非投げ銭ください。
+で開発者に寄付できます。サーバー維持費に使うので是非投げ銭ください。<br><br>
 
 ## rain
 ### @￰zenytips rain 撒銭額<br>
 条件を満たしている人に均等にZNYを送ります。<br>
-rainを受け取れる条件は、残高5zny以上でbalanceをしていることです。<br>
+rainを受け取れる条件は、残高5zny以上でbalanceをしていることです。<br><br>
 
 
 ## rainlist
-DMでのみ使えます。rainを受け取る条件を満たしている人一覧を返します。
+DMでのみ使えます。rainを受け取る条件を満たしている人一覧を返します。<br><br>
 
 ## rainfollower
 ### @￰zenytips rainfollower 撒銭額<br>
-自分のフォロワーの人に限りrainをします。重いので連発しないでね。
+自分のフォロワーの人に限りrainをします。重いので連発しないでね。<br><br>
 
 ## rainfollowerlist
-DMでのみ使えます。rainfollowerを受け取る条件を満たしている人一覧を返します。
+DMでのみ使えます。rainfollowerを受け取る条件を満たしている人一覧を返します。<br><br>
+
+## giveme
+### @zenytips giveme (コメント)<br>
+以下の条件を満たしているときにちょっとだけZNYがもらえます。また、DMではこのコマンドは使えません。<br><br>
+・公式クライアントを使用していること<br>
+・100ツイート以上であること<br>
+・アカウントを作成してから2週間以上経過していること<br>
+・残高10ZNY以下であること<br>
+・最後の出金から7日以上経ってること<br>
+・最後のgivemeから24時間以後であること<br><br>
+
 
 ## 正月限定コマンド
 ### @￰zenytips お年玉 @￰twitterアカウント 投銭額 (コメント)<br>
