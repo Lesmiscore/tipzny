@@ -4,7 +4,7 @@ This is the help page for Rinhime, the BitZeny tipping bot on Twitter. Please re
 You can use any command except for `giveme` command.    
 For any issues about the bot (stopped, or bugs), please contact the dev's [Twitter](https://twitter.com/tra_sta).    
     
-Cautions:
+**Notices:**
 - Follow back won't be done for everyone.
 - You need at least 5 ZNY for receiving RAIN.
 
@@ -42,7 +42,7 @@ Sends specified amount of BitZeny to the specified account.
 The receiver needs to use `balance` command within 3 days to receive.    
 If the receiver didn't received your tip, it'll be sent back to your balance.    
 **Example:** `@zenytips tip @tra_sta 3.9 Thanks!`
-**Tips:** You can donate the author by: `@￰zenytips tip @￰zenytips (amount to tip, required)`
+**Tip:** You can donate the author by: `@￰zenytips tip @￰zenytips (amount to tip, required)`
 
 ## rain
 ### @￰zenytips rain (amount to rain, required)
@@ -58,7 +58,7 @@ Replies the list of users who fulfilled the condition to get rained.
 Delivers equally ZNYs to the users who fulfilled the following conditions:
 - Have deposited at least 5 ZNY.
 - Your follower.
-**Caution:** Don't abuse this, since it is a one of heavier operations.
+**Note:** Don't abuse this, since it is a one of heavier operations.
 
 ## rainfollowerlist
 Only available in the Direct Messages.    
@@ -80,5 +80,6 @@ If your account fulfills the following conditions, you can get a little ZNYs.
 **Caution:** The following command contains Japanese Kanjis, you may need Copy and Paste.
 ### @￰zenytips お年玉 (Twitter account ID starting with @, required) (amount to tip, required) (any comment, optional)
 Alias of `tip` command.
+
 ### @￰zenytips お賽銭 (amount to tip, required) (any comment, optional)
 You can make a money offering. More you make a money offering, I will be happier.
