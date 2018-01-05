@@ -2,7 +2,7 @@
 
 This is the help page for Rinhime *(pronounced: `Re-in-he-may`)* , the BitZeny tipping bot on Twitter.    
 Please refer below for commands.    
-You can use any command except for `giveme` command.    
+You can use any command by both tweeting or messaging except for `giveme`, `rainlist`, and `rainfollowerlist` command.    
 For any issues about the bot (stopped, or bugs), please contact the dev's [Twitter](https://twitter.com/tra_sta).    
 
 Translated by [nao20010128nao](https://github.com/nao20010128nao).     
