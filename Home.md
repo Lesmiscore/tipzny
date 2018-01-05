@@ -21,15 +21,16 @@ Replies you deposit address.
 <img src="https://i.imgur.com/r6cxfFc.png" alt="" width="50%" height="50%">
 
 ## withdraw
-### @zenytips withdraw 受取ZNYアドレス 出金額<br>
-指定した額を出金することができます。<br><br>
-例:@zenytips withdraw EXAMPleAdDreSS 10<br>
+### @zenytips withdraw (ZNY address, required) (amount to withdraw, required)
+Withdraws specified amount of BitZeny to the specified address.    
+**Example:** `@zenytips withdraw ZuGdQvycbE9HTfke3EPcSUQEH2joaYqXjj 10`    
 <img src="https://i.imgur.com/NNqJiEu.png" alt="" width="50%" height="50%">
 
-## withdrawall/全額出金
-### @zenytips withdrawall 受取ZNYアドレス<br>
-りん姫にある残高すべてを出金することができます。<br><br>
-例:@zenytips withdrawall EXAMPleAdDreSS<br><br>
+## withdrawall
+### @zenytips withdrawall (ZNY address, required)
+Withdraws *all* BitZeny to the specified address.        
+**Example:** `@zenytips withdrawall ZuGdQvycbE9HTfke3EPcSUQEH2joaYqXjj`    
+**CAUTION:** This command will withdraw **ALL** BitZeny including the last 5ZNY.
 
 ## send/送金
 ### @￰zenytips send @￰twitterアカウント 送金額 (コメント)<br>
