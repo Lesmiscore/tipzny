@@ -32,33 +32,37 @@ Withdraws *all* BitZeny to the specified address.
 **Example:** `@zenytips withdrawall ZuGdQvycbE9HTfke3EPcSUQEH2joaYqXjj`    
 **CAUTION:** This command will withdraw **ALL** BitZeny including the last 5ZNY.
 
-## send/送金
-### @￰zenytips send @￰twitterアカウント 送金額 (コメント)<br>
-指定された額のZNYを相手に送ります。<br><br>
+## send
+### @￰zenytips send (Twitter account ID starting with @, required) (amount to send, required) (any comment, optional)
+Sends specified amount of BitZeny to the specified account.
 
-## tip/投銭
-### @￰zenytips tip @￰twitterアカウント 投銭額 (コメント)<br>
-指定された額のZNYを相手に送ります。送られた側は3日以内にbalanceをすると受け取れます。<br>
-相手が3日以内に受け取らなかった場合、返金されます。<br><br>
-例:@zenytips tip @tra_sta 3.9 ありがとう！<br><br>
-### @￰zenytips tip @￰zenytips 投銭額<br>
-で開発者に寄付できます。サーバー維持費に使うので是非投げ銭ください。<br><br>
+## tip
+### @￰zenytips tip (Twitter account ID starting with @, required) (amount to tip, required) (any comment, optional)
+Sends specified amount of BitZeny to the specified account.    
+The receiver needs to use `balance` command within 3 days to receive.    
+If the receiver didn't received your tip, it'll be sent back to your balance.    
+**Example:** `@zenytips tip @tra_sta 3.9 Thanks!`
+**Tips:** You can donate the author by: `@￰zenytips tip @￰zenytips (amount to tip, required)`
 
 ## rain
-### @￰zenytips rain 撒銭額<br>
-条件を満たしている人に均等にZNYを送ります。<br>
-rainを受け取れる条件は、残高5zny以上でbalanceをしていることです。<br><br>
-
+### @￰zenytips rain (amount to rain, required)<br>
+Delivers equally ZNYs to the users who fulfilled the following condition:
+- Have deposited at least 5 ZNY.
 
 ## rainlist
-DMでのみ使えます。rainを受け取る条件を満たしている人一覧を返します。<br><br>
+Only available in the Direct Messages.    
+Replies the list of users who fulfilled the condition to get rained.
 
 ## rainfollower
 ### @￰zenytips rainfollower 撒銭額<br>
-自分のフォロワーの人に限りrainをします。重いので連発しないでね。<br><br>
+Delivers equally ZNYs to the users who fulfilled the following conditions:
+- Have deposited at least 5 ZNY.
+- Your follower.
+**Caution:** Don't abuse this, since it is a one of heavier operations.
 
 ## rainfollowerlist
-DMでのみ使えます。rainfollowerを受け取る条件を満たしている人一覧を返します。<br><br>
+Only available in the Direct Messages.    
+Replies the list of users who fulfilled the condition to get rained in your follower.
 
 ## giveme
 ### @zenytips giveme (コメント)<br>
@@ -71,7 +75,7 @@ DMでのみ使えます。rainfollowerを受け取る条件を満たしている
 ・最後のgivemeから24時間以後であること<br><br>
 
 
-## 正月限定コマンド
+## A hidden command only available for the New Year Day
 ### @￰zenytips お年玉 @￰twitterアカウント 投銭額 (コメント)<br>
 tipのところをお年玉に変えても使えるよーって話。<br>
 ### @￰zenytips お賽銭 投銭額 (コメント)<br>
