@@ -4,7 +4,9 @@ This is the help page for Rinhime *(pronounced: `Re-in-he-may`)* , the BitZeny t
 Please refer below for commands.    
 You can use any command except for `giveme` command.    
 For any issues about the bot (stopped, or bugs), please contact the dev's [Twitter](https://twitter.com/tra_sta).    
-    
+
+Translated by [nao20010128nao](https://github.com/nao20010128nao).     
+
 **Notices:**
 - Follow back won't be done for everyone.
 - You need at least 5 ZNY for receiving RAIN.
