@@ -1,12 +1,12 @@
-# りん姫 How to use
+# Usages for Rinhime(りん姫), the BitZeny tipping bot on Twitter
 
-ここはりん姫(BitZeny投げ銭bot)のヘルプページです。以下で使えるコマンドを参照してください。<br>
-また、giveme以外のコマンドはDMでも使うことができます。<br>
-botが止まっていた時や質問があるときは[開発者twitter](https://twitter.com/tra_sta)まで。<br><br>
-※注意<br>
-・フォロバは気まぐれです。必ずしもされるわけではありません。<br>
-・コマンドを使うときの空白はすべて半角にしてください。<br>
-・rainを受け取るために残高は5ZNY以上残しておくことをお勧めします。<br>
+This is the help page for Rinhime, the BitZeny tipping bot on Twitter. Please refer below for commands.    
+You can use any command except for `giveme` command.    
+For any issues about the bot (stopped, or bugs), please contact the dev's [Twitter](https://twitter.com/tra_sta).    
+    
+Cautions:
+- Follow back won't be done for everyone.
+- You need at least 5 ZNY for receiving RAIN.
 
 ## balance/残高
 ### @zenytips balance (コメント)<br>
