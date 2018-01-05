@@ -45,7 +45,7 @@ If the receiver didn't received your tip, it'll be sent back to your balance.
 **Tips:** You can donate the author by: `@￰zenytips tip @￰zenytips (amount to tip, required)`
 
 ## rain
-### @￰zenytips rain (amount to rain, required)<br>
+### @￰zenytips rain (amount to rain, required)
 Delivers equally ZNYs to the users who fulfilled the following condition:
 - Have deposited at least 5 ZNY.
 
@@ -54,7 +54,7 @@ Only available in the Direct Messages.
 Replies the list of users who fulfilled the condition to get rained.
 
 ## rainfollower
-### @￰zenytips rainfollower 撒銭額<br>
+### @￰zenytips rainfollower (amount to rain, required)
 Delivers equally ZNYs to the users who fulfilled the following conditions:
 - Have deposited at least 5 ZNY.
 - Your follower.
@@ -65,18 +65,20 @@ Only available in the Direct Messages.
 Replies the list of users who fulfilled the condition to get rained in your follower.
 
 ## giveme
-### @zenytips giveme (コメント)<br>
-以下の条件を満たしているときにちょっとだけZNYがもらえます。また、DMではこのコマンドは使えません。<br><br>
-・公式クライアントを使用していること<br>
-・100ツイート以上であること<br>
-・アカウントを作成してから2週間以上経過していること<br>
-・残高10ZNY以下であること<br>
-・最後の出金から7日以上経ってること<br>
-・最後のgivemeから24時間以後であること<br><br>
+### @zenytips giveme (any comment, optional)
+If your account fulfills the following conditions, you can get a little ZNYs.    
+- Using official client.
+- Tweeted more than 100 tweets.
+- 2 weeks elapsed from creation of your account.
+- Your balance is 10 ZNY or less.
+- 7 days elapsed from the last withdrawal.
+- 24 hours elapsed from the last `giveme` command.
 
+**Caution:** Not available in the Direct Messages, be careful.
 
 ## A hidden command only available for the New Year Day
-### @￰zenytips お年玉 @￰twitterアカウント 投銭額 (コメント)<br>
-tipのところをお年玉に変えても使えるよーって話。<br>
-### @￰zenytips お賽銭 投銭額 (コメント)<br>
-賽銭を投げることができます。いっぱい投げるとご利益があるかも...？あと私がうれしいので是非
+**Caution:** The following command contains Japanese Kanjis, you may need Copy and Paste.
+### @￰zenytips お年玉 (Twitter account ID starting with @, required) (amount to tip, required) (any comment, optional)
+Alias of `tip` command.
+### @￰zenytips お賽銭 (amount to tip, required) (any comment, optional)
+You can make a money offering. More you make a money offering, I will be happier.
