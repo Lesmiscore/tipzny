@@ -299,9 +299,9 @@ def on_tweet(status, istweet):
 
 			logger.info("check balance..." + name)
 			logger.info(DecimaltoStr(balance) + "ZNY all(" + DecimaltoStr(all_balance) + "ZNY)")
-			tweet = "@" + name + " You have " + DecimaltoStr(balance) + u"ZNY!"
+			tweet = "@" + name + " Now you have " + DecimaltoStr(balance) + u"ZNY!"
 			if balance < all_balance:
-				tweet += u"\n(confirm中" + DecimaltoStr(all_balance-balance) + u"ZNY)"
+				tweet += u"\n(confirming: " + DecimaltoStr(all_balance-balance) + u"ZNY)"
 			replyMessage(status,tweet,istweet)
 
 		elif not istweet and re.search(u"rainlist", message):
@@ -310,7 +310,7 @@ def on_tweet(status, istweet):
 				rainlist = get_rainlist(0)
 				nmb = len(rainlist)
 				if nmb == 0:
-					tweet = "@" + name + u" 対象者がいないみたいです。。。"
+					tweet = "@" + name + u" Looks like there's no target to rain!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -320,7 +320,7 @@ def on_tweet(status, istweet):
 				replyMessage(status,tweet,istweet)
 				logger.info("-> get")
 			except:
-				tweet = "@" + name + u" API制限です...しばらくこのコマンドは使えません><"
+				tweet = "@" + name + u" Sorry, but the API is limited now... Be patient for a while."
 				replyMessage(status,tweet,istweet)
 
 		elif not istweet and re.search(u"rainfollowerlist", message):
@@ -334,7 +334,7 @@ def on_tweet(status, istweet):
 
 				nmb = len(rainfollower)
 				if nmb == 0:
-					tweet = "@" + name + u" 対象者がいないみたいです。。。"
+					tweet = "@" + name + u" Looks like there's no target to rain!"
 					replyMessage(status,tweet,istweet)
 					return
 				tweet = ""
@@ -344,7 +344,7 @@ def on_tweet(status, istweet):
 				replyMessage(status,tweet,istweet)
 				logger.info("-> get")
 			except:
-				tweet = "@" + name + u" API制限です...しばらくこのコマンドは使えません><"
+				tweet = "@" + name + u" Sorry, but the API is limited now... Be patient for a while."
 				replyMessage(status,tweet,istweet)
 
 
@@ -352,7 +352,7 @@ def on_tweet(status, istweet):
 			address = zeny.getaccountaddress(account)
 			logger.info("get deposit address..." + name)
 			logger.info(account + " => " + address)
-			tweet = "@" + name + " " + address + u" に送金お願いしますっ！"
+			tweet = "@" + name + " Please send your funds to " + address + u" please!"
 			replyMessage(status,tweet,istweet)
 
 		elif re.match("withdrawall", message) or re.match(u"全額出金", message):
@@ -370,14 +370,14 @@ def on_tweet(status, istweet):
 
 			if round(0-payying,7) >= 0:
 				logger.info("-> Not enough ZNY (0.01 > " + str(payying) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + str(balance) + "ZNY"
+				tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + str(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
 			validate = zeny.validateaddress(address)
 			if not validate['isvalid']:
 				logger.info("-> Invalid address")
-				tweet = "@" + name + u" アドレスが間違ってるみたいですっ"
+				tweet = "@" + name + u" You may have wrong address typed. Did you copied the address correctly?"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -396,7 +396,7 @@ def on_tweet(status, istweet):
 
 			zeny.move(account, "taxpot", tax+fee)
 			logger.info("-> Fee sent to taxpot: " + str(tax+fee) + "ZNY")
-			tweet = "@" + name + u" zenyを引き出しましたっ！(手数料0.01ZNY)\nhttp://namuyan.dip.jp/MultiLightBlockExplorer/gettxid.php?coin=zeny&txid=" + str(txid)
+			tweet = "@" + name + u" Successfully deposited ZNYs from your balance! (Fee 0.01ZNY)\nhttp://namuyan.dip.jp/MultiLightBlockExplorer/gettxid.php?coin=zeny&txid=" + str(txid)
 			replyMessage(status,tweet,istweet)
 
 			stopgiveme(user_id, 7)
@@ -406,7 +406,7 @@ def on_tweet(status, istweet):
 		elif re.match("withdraw", message) or re.match(u"出金", message):
 			m = re.split(" ", message)
 			if len(m) < 3 or not str_isfloat(m[2]):
-				helptweet(status, u"withdraw(出金)の使い方\n@￰rintips withdraw 受取ZNYアドレス 出金額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for withdraw command:\n@￰rintips withdraw  (ZNY address) (amount to withdraw)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 
 			address = m[1]
@@ -416,7 +416,7 @@ def on_tweet(status, istweet):
 			amount = amot-tax
 
 			if amount <= 0:
-				tweet = "@" + name + u" 0以下の数は指定できません！"
+				tweet = "@" + name + u" Negative value is not allowed here!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -424,14 +424,14 @@ def on_tweet(status, istweet):
 
 			if round(Decimal(amount)-balance,7) >= 0:
 				logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+				tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
 			validate = zeny.validateaddress(address)
 			if not validate['isvalid']:
 				logger.info("-> Invalid address")
-				tweet = "@" + name + u" アドレスが間違ってるみたいですっ"
+				tweet = "@" + name + u" You may have wrong address typed. Did you copied the address correctly?"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -450,7 +450,7 @@ def on_tweet(status, istweet):
 
 			zeny.move(account, "taxpot", tax+fee)
 			logger.info("-> Fee sent to taxpot: " + str(tax+fee) + "ZNY")
-			tweet = "@" + name + u" zenyを引き出しましたっ！(手数料0.01ZNY)\nhttp://namuyan.dip.jp/MultiLightBlockExplorer/gettxid.php?coin=zeny&txid=" + str(txid)
+			tweet = "@" + name + u" Successfully deposited ZNYs from your balance! (Fee 0.01ZNY)\nhttp://namuyan.dip.jp/MultiLightBlockExplorer/gettxid.php?coin=zeny&txid=" + str(txid)
 			replyMessage(status,tweet,istweet)
 
 			stopgiveme(user_id, 7)
@@ -462,13 +462,13 @@ def on_tweet(status, istweet):
 			try:
 				m = re.split(" ", message)
 				if len(m) < 2 or not str_isfloat(m[1]):
-					helptweet(status, u"rainfollowerの使い方\n@￰rintips rainfollower 撒銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+					helptweet(status, u"Usage for rainfollower command\n@￰rintips rainfollower (amount to rain)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 					return
 				amount = float(m[1])
 				balance = zeny.getbalance(account,6)
 
 				if amount < 0.01:
-					tweet = "@" + name + u" 0.01より小さい数は指定できません！"
+					tweet = "@" + name + u" The value can't be <= 0.01!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -476,13 +476,13 @@ def on_tweet(status, istweet):
 
 				if round(Decimal(amount)-balance,7) > 0:
 					logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-					tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+					tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 					replyMessage(status,tweet,istweet)
 					return
 
 				rainlist = get_rainlist(0)
 				if len(rainlist) == 0:
-					tweet = "@" + name + u" 対象者がいないみたいです。。。"
+					tweet = "@" + name + u" Looks like there's no target to rain!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -493,7 +493,7 @@ def on_tweet(status, istweet):
 
 				nmb = len(rainfollower)
 				if nmb == 0:
-					tweet = "@" + name + u" 対象者がいないみたいです。。。"
+					tweet = "@" + name + u" Looks like there's no target to rain!"
 					replyMessage(status,tweet,istweet)
 					return
 				mon = round(amount/nmb,7)
@@ -504,10 +504,10 @@ def on_tweet(status, istweet):
 
 				logger.info("-> Sent.")
 
-				tweet = "@" + name + u" " + str(nmb) + u"人にそれぞれ @" + name + u" さんより" + str(mon) + u"ZNYずつ送りましたっ！"
+				tweet = "@" + name + u" Yay! " + name + u" sent " + str(mon) + u" ZNYs for " + str(nmb) + u" users!"
 				replyMessage(status,tweet,istweet)
 			except:
-				tweet = "@" + name + u" API制限です...しばらくこのコマンドは使えません><"
+				tweet = "@" + name + u" Sorry, but the API is limited now... Be patient for a while."
 				replyMessage(status,tweet,istweet)
 
 
@@ -515,7 +515,7 @@ def on_tweet(status, istweet):
 			try:
 				m = re.split(" ", message)
 				if len(m) < 2 or not str_isfloat(m[1]):
-					helptweet(status, u"rain(撒き銭)の使い方\n@￰rintips rain 撒銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+					helptweet(status, u"Usage for rain command\n@￰rintips rain (amount to rain)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 					return
 				amount = float(m[1])
 				balance = zeny.getbalance(account,6)
@@ -529,7 +529,7 @@ def on_tweet(status, istweet):
 
 				if round(Decimal(amount)-balance,7) > 0:
 					logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-					tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+					tweet = "@" + name + u" You don't have enough balance for it!\nBalance:: " + DecimaltoStr(balance) + "ZNY"
 					replyMessage(status,tweet,istweet)
 					return
 
