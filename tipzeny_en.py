@@ -195,7 +195,7 @@ def giveme(status):
 		replyMessage(status,tweet,True)
 		return False
 	if status.user.created_at + datetime.timedelta(days=14) > datetime.datetime.now():
-		tweet = "@" + name + u" アカウント作成から2週間経っていないので受け取れません..."
+		tweet = "@" + name + u" Sorry, but I can't give you because your account does not aged 2 weeks or more."
 		replyMessage(status,tweet,True)
 		return False
 
@@ -203,13 +203,13 @@ def giveme(status):
 	user_balance = zeny.getbalance(account,0)
 
 	if user_balance > 10:
-		tweet = "@" + name + u" 残高が10ZNY以上あると受け取れませんっ!"
+		tweet = "@" + name + u" Sorry, but I can't give you because your balance is 10 ZNY or more."
 		replyMessage(status,tweet,True)
 		return False
 
 	pot_balance = zeny.getbalance("giveme",0)
 	if pot_balance < 2:
-		tweet = "@" + name + u" ごめんなさい、配布する資金が足りなくなっちゃいました>< 寄付してくれるとうれしいです！"
+		tweet = "@" + name + u" Sorry, I can't give you because the pool is empty. I will be happier if you can donate for it ;)"
 		replyMessage(status,tweet,True)
 		return False
 
@@ -227,9 +227,9 @@ def giveme(status):
 		date = datetime.datetime.strptime(data[2], "%Y/%m/%d %H:%M:%S")
 		if datetime.datetime.now() < date + datetime.timedelta(days = data[1]):
 			if data[1] == 1:
-				tweet = "@" + name + u" 最後の配布から一日経ってないよっ"
+				tweet = "@" + name + u" Hey, you can't receive again in 24 hours."
 			else:
-				tweet = "@" + name + u" 出金してから7日は使えないよっ"
+				tweet = "@" + name + u" Hey, you can't receive from 7 days from the last withdrawals."
 			replyMessage(status,tweet,True)
 			con.close()
 			return False
@@ -244,7 +244,7 @@ def giveme(status):
 
 	amount = (50.0 + random.randint(1,50))/100
 	zeny.move("giveme", account, amount)
-	tweet = "@" + name + u" りん姫から @" + name + u" さんに" + str(amount) + u"ZNYのプレゼント！"
+	tweet = "@" + name + u" I give you " + str(amount) + u" ZNY to " + name + u"."
 	replyMessage(status,tweet,True)
 	logger.info("->"+str(amount)+"ZNY give")
 	return False
