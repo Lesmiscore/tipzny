@@ -244,7 +244,7 @@ def giveme(status):
 
 	amount = (50.0 + random.randint(1,50))/100
 	zeny.move("giveme", account, amount)
-	tweet = "@" + name + u" I give you " + str(amount) + u" ZNY to " + name + u"."
+	tweet = "@" + name + u" I will give you " + str(amount) + u" ZNY to " + name + u"."
 	replyMessage(status,tweet,True)
 	logger.info("->"+str(amount)+"ZNY give")
 	return False
@@ -416,7 +416,7 @@ def on_tweet(status, istweet):
 			amount = amot-tax
 
 			if amount <= 0:
-				tweet = "@" + name + u" Negative value is not allowed here!"
+				tweet = "@" + name + u" The amount can't be negative!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -468,7 +468,7 @@ def on_tweet(status, istweet):
 				balance = zeny.getbalance(account,6)
 
 				if amount < 0.01:
-					tweet = "@" + name + u" The value can't be <= 0.01!"
+					tweet = "@" + name + u" The amount can't be <= 0.01!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -521,7 +521,7 @@ def on_tweet(status, istweet):
 				balance = zeny.getbalance(account,6)
 
 				if amount < 0.01:
-					tweet = "@" + name + u" 0.01より小さい数は指定できません！"
+					tweet = "@" + name + u" The amount can't be <= 0.01!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -529,14 +529,14 @@ def on_tweet(status, istweet):
 
 				if round(Decimal(amount)-balance,7) > 0:
 					logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-					tweet = "@" + name + u" You don't have enough balance for it!\nBalance:: " + DecimaltoStr(balance) + "ZNY"
+					tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 					replyMessage(status,tweet,istweet)
 					return
 
 				rainlist = get_rainlist(0)
 				nmb = len(rainlist)
 				if nmb == 0:
-					tweet = "@" + name + u" 対象者がいないみたいです。。。"
+					tweet = "@" + name + u" Looks like there's no target to rain!"
 					replyMessage(status,tweet,istweet)
 					return
 
@@ -546,19 +546,19 @@ def on_tweet(status, istweet):
 					zeny.move(account,to_account,mon)
 				logger.info("-> Sent.")
 
-				tweet = "@" + name + u" " + str(nmb) + u"人にそれぞれ @" + name + u" さんより" + str(mon) + u"ZNYずつ送りましたっ！"
+				tweet = "@" + name + u" Yay! " + name + u" sent " + str(mon) + u" ZNYs for " + str(nmb) + u" users!"
 				replyMessage(status,tweet,istweet)
 			except:
-				tweet = "@" + name + u" API制限です...しばらくこのコマンドは使えません><"
+				tweet = "@" + name + u" Sorry, but the API is limited now... Be patient for a while."
 				replyMessage(status,tweet,istweet)
 
 		elif re.match("send", message) or re.match(u"送金", message):
 			m = re.split(" ", message)
 			if len(m) < 3 or not str_isfloat(m[2]):
-				helptweet(status, u"send(送金)の使い方\n@￰rintips send @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for send command\n@￰rintips send (Twitter account ID starting with @) (amount to send) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 			if m[1][0] != "@":
-				helptweet(status, u"send(送金)の使い方\n@￰rintips send @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for send command\n@￰rintips send (Twitter account ID starting with @) (amount to send) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 
 			to = m[1][1:]
@@ -566,7 +566,7 @@ def on_tweet(status, istweet):
 			balance = zeny.getbalance(account,6)
 
 			if amount <= 0:
-				tweet = "@" + name + u" 0以下の数は指定できません！"
+				tweet = "@" + name + u" The amount can't be negative!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -574,7 +574,7 @@ def on_tweet(status, istweet):
 
 			if round(Decimal(amount)-balance,7) > 0:
 				logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+				tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -583,7 +583,7 @@ def on_tweet(status, istweet):
 
 			except:
 				logger.info("-> User not found.")
-				tweet = "@" + name + u" 送り主(" + to + u")が見つかりませんでした…"
+				tweet = "@" + name + u" The destination(" + to + u") is not known."
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -596,10 +596,10 @@ def on_tweet(status, istweet):
 		elif re.match("tip", message) or re.match(u"投銭", message):
 			m = re.split(" ", message)
 			if len(m) < 3 or not str_isfloat(m[2]):
-				helptweet(status, u"tip(投銭)の使い方\n@￰rintips tip @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for tip command\n@￰rintips tip (Twitter account ID starting with @) (amount to tip) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 			if m[1][0] != "@":
-				helptweet(status, u"tip(投銭)の使い方\n@￰rintips tip @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for tip command\n@￰rintips tip (Twitter account ID starting with @) (amount to tip) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 
 			to = m[1][1:]
@@ -607,7 +607,7 @@ def on_tweet(status, istweet):
 			balance = zeny.getbalance(account,6)
 
 			if amount <= 0:
-				tweet = "@" + name + u" 0以下の数は指定できません！"
+				tweet = "@" + name + u" The amount can't be negative!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -615,7 +615,7 @@ def on_tweet(status, istweet):
 
 			if round(Decimal(amount)-balance,7) > 0:
 				logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+				tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -624,7 +624,7 @@ def on_tweet(status, istweet):
 
 			except:
 				logger.info("-> User not found.")
-				tweet = "@" + name + u" 送り主(" + to + u")が見つかりませんでした…"
+				tweet = "@" + name + u" The destination(" + to + u") is not known."
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -633,28 +633,28 @@ def on_tweet(status, istweet):
 			if re.match("rintips",to):
 				zeny.move(account,"giveme",amount) #tipzeny-3029861817
 				logger.info("-> Sent.")
-				tweet = "@" + to + u" りん姫より @" + name + u" さんから" + str(amount) + u"ZNYの寄付だよっ！ありがとっ！givemeやサーバー維持費に使わせてもらうね！"
+				tweet = "@" + to + u" Donated " + str(amount) + u"ZNYs from @" + name + u". Thank you for donation! I'll use it for maintaining servers, and for giveme command!"
 				replyMessage(status,tweet,istweet)
 				return
 
 			savetip(user_id, to_user.id, amount)
 			zeny.move(account,"tippot",amount)
 			logger.info("-> Sent.")
-			tweet = "@" + to + u" りん姫より @" + name + u" さんから" + str(amount) + u"ZNYのお届け物だよっ！ 3日以内にbalanceして受け取ってね！"
+			tweet = "@" + to + u" Sent " + str(amount) + u"ZNYs from @" + name + u". Run balance command within 3 days to receive tips!"
 			replyMessage(status,tweet,istweet)
 
 		elif re.match("otoshidama", message) or re.match(u"お年玉", message):
 			today = datetime.datetime.now() + datetime.timedelta(hours=9)
 			if today.day != 1 or today.month != 1:
-				tweet = "@" + name + u" 今日はお正月じゃないよっ！"
+				tweet = "@" + name + u" Hey, it's not the New Years Day (Jan, 1) now!"
 				replyMessage(status,tweet,istweet)
 				return
 			m = re.split(" ", message)
 			if len(m) < 3 or not str_isfloat(m[2]):
-				helptweet(status, u"otoshidama(お年玉)の使い方\n@￰rintips お年玉 @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for お年玉 command\n@￰rintips お年玉 (Twitter account ID starting with @) (amount to tip) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 			if m[1][0] != "@":
-				helptweet(status, u"otoshidama(お年玉)の使い方\n@￰rintips お年玉 @￰twitterアカウント 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for お年玉 command\n@￰rintips お年玉 (Twitter account ID starting with @) (amount to tip) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 
 			to = m[1][1:]
@@ -662,7 +662,7 @@ def on_tweet(status, istweet):
 			balance = zeny.getbalance(account,6)
 
 			if amount <= 0:
-				tweet = "@" + name + u" 0以下の数は指定できません！"
+				tweet = "@" + name + u" The amount can't be negative!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -670,7 +670,7 @@ def on_tweet(status, istweet):
 
 			if round(Decimal(amount)-balance,7) > 0:
 				logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+				tweet = "@" + name + u" The destination(" + to + u") is not known. " + DecimaltoStr(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -679,7 +679,7 @@ def on_tweet(status, istweet):
 
 			except:
 				logger.info("-> User not found.")
-				tweet = "@" + name + u" 送り主(" + to + u")が見つかりませんでした…"
+				tweet = "@" + name + u"The destination(" + to + u") is not known.
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -688,32 +688,32 @@ def on_tweet(status, istweet):
 			if re.match("tra_sta",to) or re.match("rintips",to):
 				zeny.move(account,"tipzeny-3029861817",amount)
 				logger.info("-> Sent.")
-				tweet = "@" + to + u" りん姫より @" + name + u" さんから" + str(amount) + u"ZNYのお年玉だよっ！ あけましておめでとう！今年もよろしくねっ！"
+				tweet = "@" + to + u" Presented " + str(amount) + u"ZNYs from @" + name + u". Thank you! Happy New Year!"
 				replyMessage(status,tweet,istweet)
 				return
 
 			savetip(user_id, to_user.id, amount)
 			zeny.move(account,"tippot",amount)
 			logger.info("-> Sent.")
-			tweet = "@" + to + u" りん姫より @" + name + u" さんから" + str(amount) + u"ZNYのお年玉だよっ！ あけましておめでとう！今年もよろしくねっ！ 3日以内にbalanceして受け取ってね！"
+			tweet = "@" + to + u" Presented " + str(amount) + u"ZNYs from @" + name + u". Happy New Year! Receive the present by balance command within 3 days!"
 			replyMessage(status,tweet,istweet)
 
 		elif re.match(u"osaisen", message) or re.match(u"お賽銭", message):
 			today = datetime.datetime.now() + datetime.timedelta(hours=9)
 			if today.day != 1 or today.month != 1:
-				tweet = "@" + name + u" 今日はお正月じゃないよっ！"
+				tweet = "@" + name + u" Hey, it's not the New Years Day (Jan, 1) now!"
 				replyMessage(status,tweet,istweet)
 				return
 			m = re.split(" ", message)
 			if len(m) < 2 or not str_isfloat(m[1]):
-				helptweet(status, u"osaisen(お賽銭)の使い方\n@￰rintips お賽銭 投銭額(ZNY)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+				helptweet(status, u"Usage for お賽銭 command\n@￰rintips (amount to tip) (any comment)\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 				return
 
 			amount = float(m[1])
 			balance = zeny.getbalance(account,6)
 
 			if amount <= 0:
-				tweet = "@" + name + u" 0以下の数は指定できません！"
+				tweet = "@" + name + u" The amount can't be negative!"
 				replyMessage(status,tweet,istweet)
 				return
 
@@ -721,13 +721,13 @@ def on_tweet(status, istweet):
 
 			if round(Decimal(amount)-balance,7) > 0:
 				logger.info("-> Not enough ZNY ("+ DecimaltoStr(balance) + " < " + str(amount) + ")")
-				tweet = "@" + name + u" 残高が足りないみたいですっ！\n所持zny: " + DecimaltoStr(balance) + "ZNY"
+				tweet = "@" + name + u" You don't have enough balance for it!\nBalance: " + DecimaltoStr(balance) + "ZNY"
 				replyMessage(status,tweet,istweet)
 				return
 
 			zeny.move(account,"tipzeny-3029861817",amount)
 			logger.info("-> Sent.")
-			tweet = "@" + name + u" お賽銭" + str(amount) + u"ZNYを投げましたっ！ 今年もいいことがありますように。。。"
+			tweet = "@" + name + u" You made a money offering " + str(amount) + u"ZNYs! I hope you "
 			replyMessage(status,tweet,istweet)
 
 		elif re.search("give me", message) or re.search("giveme", message):
@@ -735,7 +735,7 @@ def on_tweet(status, istweet):
 				giveme(status)
 
 		elif re.match("help", message) or len(message) < 2:
-			helptweet(status, u"りん姫の使い方はここっ\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
+			helptweet(status, u"Check here out for usage of me!\nhttps://github.com/trasta298/tipzeny/wiki",istweet)
 
 
 class Listener(StreamListener):
